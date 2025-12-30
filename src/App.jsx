@@ -36,21 +36,6 @@ function App() {
     localStorage.setItem("saved_trips", JSON.stringify(trips));
   }, [trips]);
 
-  useEffect(() => {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (SpeechRecognition) {
-      const recognition = new SpeechRecognition();
-      recognition.continuous = true;
-      recognition.lang = 'en-US';
-      recognition.onresult = (event) => {
-        const transcript = event.results[event.results.length - 1][0].transcript.toLowerCase();
-        if (transcript.includes("start tracking")) startTracking();
-        if (transcript.includes("stop session")) stopTracking();
-      };
-      recognition.start();
-    }
-  }, []);
-
   const startTracking = () => {
     if (isTracking) return;
     setCurrentRoute([]);
@@ -113,7 +98,7 @@ function App() {
         <header style={styles.header}>
           <div>
             <h1 style={theme.heading}>gridMOOZ <span style={theme.version}>v4.0.2</span></h1>
-            <p style={theme.voiceAuth}>// VOX_LINK: "START TRACKING" | "STOP SESSION"</p>
+            <p style={theme.voiceAuth}>// SYSTEM_STATUS: ENCRYPTED_TELEMETRY_LINK</p>
           </div>
           <div style={styles.themeToggle}>
             <button onClick={() => setMapTheme('dark')} style={mapTheme === 'dark' ? theme.activeTab : theme.tab}>MIDNIGHT</button>
