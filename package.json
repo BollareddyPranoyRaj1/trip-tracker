@@ -1,8 +1,9 @@
 {
-  "name": "trip-tracker",
+  "name": "gridmooz",
   "private": true,
-  "version": "0.0.0",
+  "version": "4.0.2",
   "type": "module",
+  "homepage": "https://bollareddypranoyraj1.github.io/trip-tracker/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
